@@ -14,6 +14,23 @@ class App extends StatelessWidget {
         splitScreenMode: true,
         builder: (context, child) {
           return GetMaterialApp(
+            theme: ThemeData(
+              primaryColor: Color(0xfff15a24),
+              inputDecorationTheme: InputDecorationTheme(
+                focusedBorder: OutlineInputBorder(
+                  borderSide:
+                      BorderSide(width: 1.5.w, color: Color(0xfff15a24)),
+                  borderRadius: BorderRadius.circular(15.r),
+                ),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.circular(15.r),
+                ),
+              ),
+              fontFamily: "Outfit",
+              useMaterial3: false,
+              scaffoldBackgroundColor: Colors.white,
+            ),
             debugShowCheckedModeBanner: false,
             getPages: AppRoutes.routes,
             home: child,
