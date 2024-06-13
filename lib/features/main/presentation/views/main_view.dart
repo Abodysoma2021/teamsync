@@ -16,12 +16,14 @@ class MainView extends StatelessWidget {
           return Scaffold(
             body: controller.views[controller.index],
             bottomNavigationBar: BottomAppBar(
+              elevation: 0,
               height: 70.h,
               shape: const CircularNotchedRectangle(),
               notchMargin: 6.0,
               child: BottomNavigationBar(
+                elevation: 0,
                 onTap: (index) => controller.onViewChanged(index),
-                selectedItemColor: Colors.red,
+                selectedItemColor: context.theme.primaryColor,
                 unselectedItemColor: Colors.grey,
                 showUnselectedLabels: true,
                 currentIndex: controller.index,
