@@ -4,28 +4,32 @@ import 'package:teamsync/core/theme/app_styles.dart';
 
 class AppCustomTextFormField extends StatelessWidget {
   const AppCustomTextFormField({
-    required this.name,
+    this.name,
     this.prefixIcon,
     this.hintText,
     this.suffixIcon,
     this.isPassword = false,
+    this.filled = true,
     super.key,
   });
-  final String name;
+  final String? name;
   final String? hintText;
   final IconData? prefixIcon;
   final suffixIcon;
   final bool isPassword;
+  final bool filled;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          name,
-          style: AppStyles.bodyMediumL,
-        ),
-        SizedBox(height: 10.h),
+        if (name != null) ...[
+          Text(
+            name!,
+            style: AppStyles.bodyMediumL,
+          ),
+          SizedBox(height: 10.h),
+        ],
         TextFormField(
           obscureText: isPassword,
           style: AppStyles.bodyRegularM,
@@ -40,7 +44,7 @@ class AppCustomTextFormField extends StatelessWidget {
               prefixIcon,
             ),
             suffixIcon: suffixIcon,
-            filled: true,
+            filled: filled,
             fillColor: Color(0xffFBFBFD),
           ),
         ),

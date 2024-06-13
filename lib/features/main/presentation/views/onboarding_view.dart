@@ -55,8 +55,8 @@ class OnboardingView extends StatelessWidget {
                       DotsIndicator(
                         position: controller.pageIndex,
                         dotsCount: 3,
-                        decorator:
-                            DotsDecorator(activeColor: Color(0xfff15a24)),
+                        decorator: DotsDecorator(
+                            activeColor: context.theme.primaryColor),
                       ),
                       SizedBox(height: 28.h),
                       AppCustomButton(
@@ -69,7 +69,7 @@ class OnboardingView extends StatelessWidget {
                         child: Text(
                           "Already Have an Account",
                           style: AppStyles.bodyMediumL
-                              .copyWith(color: Color(0xfff15a24)),
+                              .copyWith(color: context.theme.primaryColor),
                         ),
                       )
                     ],
