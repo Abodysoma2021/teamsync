@@ -1,8 +1,13 @@
 import 'package:get/get.dart';
 import 'package:teamsync/features/auth/presentation/views/login_view.dart';
 import 'package:teamsync/features/auth/presentation/views/signup_view.dart';
+import 'package:teamsync/features/main/presentation/views/change_password_view.dart';
+import 'package:teamsync/features/main/presentation/views/edit_profile_view.dart';
+import 'package:teamsync/features/main/presentation/views/language_view.dart';
 import 'package:teamsync/features/main/presentation/views/main_view.dart';
+import 'package:teamsync/features/main/presentation/views/notifications_view.dart';
 import 'package:teamsync/features/main/presentation/views/onboarding_view.dart';
+import 'package:teamsync/features/main/presentation/views/security_view.dart';
 import 'package:teamsync/features/main/presentation/views/settings_view.dart';
 import 'package:teamsync/features/main/presentation/views/splash_view.dart';
 
@@ -15,6 +20,11 @@ class AppRoutes {
   // Main
   static const String main = '/';
   static const String settings = '/settings';
+  static const String editProfile = '/settings/edit_profile';
+  static const String changePassword = '/settings/change_password';
+  static const String notificatios = '/settings/notificatios';
+  static const String security = '/settings/security';
+  static const String language = '/settings/language';
 
   static final List<GetPage> routes = [
     GetPage(
@@ -40,6 +50,26 @@ class AppRoutes {
     GetPage(
       name: settings,
       page: () => const SettingsView(),
+    ),
+    GetPage(
+      name: editProfile,
+      page: () => const EditProfileView(),
+    ),
+    GetPage(
+      name: changePassword,
+      page: () => const ChangePasswordView(),
+    ),
+    GetPage(
+      name: notificatios,
+      page: () => const NotificationsView(),
+    ),
+    GetPage(
+      name: security,
+      page: () => const SecurityView(),
+    ),
+    GetPage(
+      name: language,
+      page: () => const LanguageView(),
     )
     // GetPage(
     //   name: projectDetails,

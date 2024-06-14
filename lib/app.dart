@@ -34,7 +34,7 @@ class App extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             getPages: AppRoutes.routes,
             home: child,
-            initialRoute: AppRoutes.settings,
+            initialRoute: AppRoutes.main,
           );
         });
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:icons_flutter/icons_flutter.dart';
+import 'package:teamsync/core/config/app_routes.dart';
 import 'package:teamsync/core/theme/app_styles.dart';
 import 'package:teamsync/features/main/presentation/controllers/main_contorller.dart';
 
@@ -57,6 +58,7 @@ class MainView extends StatelessWidget {
               backgroundColor: context.theme.primaryColor,
               onPressed: () {
                 // Add your onPressed code here!
+                Get.toNamed(AppRoutes.settings);
               },
               child: Icon(Icons.add),
             ),

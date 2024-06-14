@@ -27,6 +27,7 @@ flutter:
     - assets/
     - assets/images/onboarding/
     - assets/images/general/
+    - assets/images/general/flags/
     - assets/lotties/onboarding/
   fonts:
     - family: Outfit
