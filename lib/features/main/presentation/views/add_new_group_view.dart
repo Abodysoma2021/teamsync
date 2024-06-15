@@ -2,33 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:icons_flutter/icons_flutter.dart';
+import 'package:teamsync/core/theme/app_styles.dart';
 import 'package:teamsync/core/widgets/app_custom_text_form_field.dart';
 
-class AddNewGroupView extends StatelessWidget {
+class AddNewGroupView extends GetView {
   const AddNewGroupView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("New Group"),
+        title: Text(
+          "New Group",
+          style: AppStyles.bodySemiBoldL.copyWith(
+            height: 1.3.h,
+          ),
+        ),
         elevation: 0,
         backgroundColor: Colors.white,
         foregroundColor: const Color(0xff191D31),
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 10.0),
-          child: InkWell(
-            borderRadius: BorderRadius.circular(30.0),
-            onTap: () => Get.back(),
-            child: Container(
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(color: const Color(0xffF3F3F3)),
-              ),
-              child: const Icon(Icons.arrow_back),
-            ),
-          ),
-        ),
       ),
       body: Padding(
         padding: EdgeInsets.all(24.r),

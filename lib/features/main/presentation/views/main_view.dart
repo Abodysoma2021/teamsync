@@ -57,7 +57,7 @@ class MainView extends StatelessWidget {
             floatingActionButton: FloatingActionButton(
               backgroundColor: context.theme.primaryColor,
               onPressed: () {
-                Get.toNamed(AppRoutes.addNewGroup);
+                Get.toNamed(AppRoutes.addNewTask);
               },
               child: Icon(Icons.add),
             ),
