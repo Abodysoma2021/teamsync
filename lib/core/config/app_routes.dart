@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:teamsync/features/auth/presentation/views/login_view.dart';
 import 'package:teamsync/features/auth/presentation/views/signup_view.dart';
+import 'package:teamsync/features/main/presentation/views/add_new_group_view.dart';
+import 'package:teamsync/features/main/presentation/views/add_new_project_view.dart';
 import 'package:teamsync/features/main/presentation/views/add_task_view.dart';
 import 'package:teamsync/features/main/presentation/views/change_password_view.dart';
 import 'package:teamsync/features/main/presentation/views/edit_profile_view.dart';
@@ -27,6 +29,8 @@ class AppRoutes {
   static const String security = '/settings/security';
   static const String language = '/settings/language';
   static const String addNewTask = '/tasks/addNewTask';
+  static const String addNewProject = '/project/addNewProject';
+  static const String addNewGroup = '/project/addNewGroup';
 
   static final List<GetPage> routes = [
     GetPage(
@@ -76,6 +80,14 @@ class AppRoutes {
     GetPage(
       name: addNewTask,
       page: () => const AddTaskView(),
+    ),
+    GetPage(
+      name: addNewProject,
+      page: () => const AddNewProjectView(),
+    ),
+    GetPage(
+      name: addNewGroup,
+      page: () => const AddNewGroupView(),
     )
     // GetPage(
     //   name: projectDetails,
