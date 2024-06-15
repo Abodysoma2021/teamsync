@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:teamsync/core/theme/app_styles.dart';
-import 'package:teamsync/features/main/presentation/views/widgets/settings_custom_text_form_field.dart';
+import 'package:teamsync/core/widgets/app_custom_button.dart';
+import 'package:teamsync/core/widgets/app_custom_text_form_field.dart';
 
 class ChangePasswordView extends StatelessWidget {
   const ChangePasswordView({super.key});
@@ -33,50 +34,30 @@ class ChangePasswordView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "New Password",
-              style: AppStyles.bodyMediumL.copyWith(
-                color: Color(0xff191D31),
-                height: 1.3.h,
-              ),
-            ),
-            SizedBox(height: 10.h),
-            settingsCustomTextFormField(
-              hint: "Enter new password",
+            AppCustomTextFormField(
+              name: "New Password",
+              hintText: "Enter new password",
               prefixIcon: Icons.lock_outline,
-              suffixIcon: Icons.remove_red_eye_outlined,
+              suffixIcon: IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.remove_red_eye_outlined),
+              ),
             ),
             SizedBox(height: 20.h),
-            Text(
-              "Confirm Password",
-              style: AppStyles.bodyMediumL.copyWith(
-                color: Color(0xff191D31),
-                height: 1.3.h,
-              ),
-            ),
-            SizedBox(height: 10.h),
-            settingsCustomTextFormField(
-              hint: "Confirm your new password",
+            AppCustomTextFormField(
+              name: "Confirm Password",
+              hintText: "Confirm your new password",
               prefixIcon: Icons.lock_outline,
-              suffixIcon: Icons.remove_red_eye_outlined,
-            ),
-            SizedBox(height: 392.h),
-            Container(
-              width: double.infinity,
-              height: 56.h,
-              decoration: BoxDecoration(
-                color: Color(0xff479C2B),
-                borderRadius: BorderRadius.circular(30.r),
+              suffixIcon: IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.remove_red_eye_outlined),
               ),
-              child: Center(
-                  child: Text(
-                "Change Now",
-                style: AppStyles.bodyMediumL.copyWith(
-                  color: Colors.white,
-                  height: 1.3.h,
-                ),
-              )),
             ),
+            const Spacer(),
+            AppCustomButton(
+              text: "Change Now",
+              onPressed: () {},
+            )
           ],
         ),
       ),

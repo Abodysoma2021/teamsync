@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:icons_flutter/icons_flutter.dart';
 import 'package:teamsync/core/theme/app_styles.dart';
-import 'package:teamsync/features/main/presentation/views/widgets/settings_custom_text_form_field.dart';
-import 'package:teamsync/features/main/presentation/views/widgets/settings_menu_Item.dart';
+import 'package:teamsync/core/widgets/app_custom_button.dart';
+import 'package:teamsync/core/widgets/app_custom_text_form_field.dart';
 
 class EditProfileView extends GetView {
   const EditProfileView({super.key});
@@ -13,7 +13,7 @@ class EditProfileView extends GetView {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        foregroundColor: Color(0xff191D31),
+        foregroundColor: const Color(0xff191D31),
         elevation: 0.1,
         title: Text(
           "Edit Profile",
@@ -44,30 +44,16 @@ class EditProfileView extends GetView {
                 child: Image.asset("assets/images/general/profile.png"),
               ),
               SizedBox(height: 30.h),
-              Text(
-                "Username",
-                style: AppStyles.bodyMediumL.copyWith(
-                  color: Color(0xff191D31),
-                  height: 1.3.h,
-                ),
-              ),
-              SizedBox(height: 10.h),
-              settingsCustomTextFormField(
-                hint: "Username",
+              AppCustomTextFormField(
+                name: "Username",
                 prefixIcon: FontAwesome.user_o,
+                hintText: "Enter User Name",
               ),
               SizedBox(height: 20.h),
-              Text(
-                "Email or Phone Number",
-                style: AppStyles.bodyMediumL.copyWith(
-                  color: Color(0xff191D31),
-                  height: 1.3.h,
-                ),
-              ),
-              SizedBox(height: 10.h),
-              settingsCustomTextFormField(
-                hint: "Email Address",
-                prefixIcon: Icons.email_outlined,
+              AppCustomTextFormField(
+                name: "Email",
+                prefixIcon: FontAwesome.envelope_o,
+                hintText: "Email",
               ),
               SizedBox(height: 20.h),
               Text(
@@ -113,21 +99,9 @@ class EditProfileView extends GetView {
                 ),
               ),
               SizedBox(height: 163.h),
-              Container(
-                width: double.infinity,
-                height: 56.h,
-                decoration: BoxDecoration(
-                  color: Color(0xff479C2B),
-                  borderRadius: BorderRadius.circular(30.r),
-                ),
-                child: Center(
-                    child: Text(
-                  "Save Changes",
-                  style: AppStyles.bodyMediumL.copyWith(
-                    color: Colors.white,
-                    height: 1.3.h,
-                  ),
-                )),
+              AppCustomButton(
+                text: "Save Changes",
+                onPressed: () {},
               ),
             ],
           ),

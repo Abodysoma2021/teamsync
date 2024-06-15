@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:icons_flutter/icons_flutter.dart';
+import 'package:teamsync/core/config/app_routes.dart';
 import 'package:teamsync/core/theme/app_styles.dart';
 
 class HomeView extends GetView {
@@ -33,31 +34,37 @@ class HomeView extends GetView {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Row(
-                              children: [
-                                CircleAvatar(
-                                  radius: 22.r,
-                                  backgroundColor: Colors.white,
-                                ),
-                                SizedBox(width: 5.w),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Hi, Abodysoma",
-                                      style: AppStyles.bodySemiBoldL
-                                          .copyWith(color: Colors.white),
-                                    ),
-                                    SizedBox(height: 4.h),
-                                    Text(
-                                      "Let's Work Casualy",
-                                      style: AppStyles.bodyRegularS.copyWith(
-                                        color: Color(0xff9A9CA6),
+                            GestureDetector(
+                              onTap: () {
+                                Get.toNamed(AppRoutes.settings);
+                              },
+                              child: Row(
+                                children: [
+                                  CircleAvatar(
+                                    radius: 22.r,
+                                    backgroundColor: Colors.white,
+                                  ),
+                                  SizedBox(width: 5.w),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Hi, Abodysoma",
+                                        style: AppStyles.bodySemiBoldL
+                                            .copyWith(color: Colors.white),
                                       ),
-                                    ),
-                                  ],
-                                )
-                              ],
+                                      SizedBox(height: 4.h),
+                                      Text(
+                                        "Let's Work Casualy",
+                                        style: AppStyles.bodyRegularS.copyWith(
+                                          color: Color(0xff9A9CA6),
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
                             IconButton(
                               onPressed: () {},

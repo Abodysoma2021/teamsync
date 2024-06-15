@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:teamsync/core/theme/app_styles.dart';
+import 'package:teamsync/features/main/presentation/widgets/settings_switch_widget.dart';
 
 class NotificationsView extends StatelessWidget {
   const NotificationsView({super.key});
@@ -10,7 +10,7 @@ class NotificationsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        foregroundColor: Color(0xff191D31),
+        foregroundColor: const Color(0xff191D31),
         elevation: 0.1,
         title: Text(
           "Notifications",
@@ -20,7 +20,7 @@ class NotificationsView extends StatelessWidget {
         ),
         actions: [
           PopupMenuButton(
-              itemBuilder: (context) => [
+              itemBuilder: (context) => const [
                     PopupMenuItem(child: Text("Option #1")),
                     PopupMenuItem(child: Text("Option #2")),
                     PopupMenuItem(child: Text("Option #3")),
@@ -28,53 +28,29 @@ class NotificationsView extends StatelessWidget {
         ],
         backgroundColor: Colors.white,
       ),
-      body: Container(
+      body: Padding(
         padding: EdgeInsets.all(24.r),
         child: Container(
-          height: 285.h,
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 18.h),
           decoration: BoxDecoration(
-            color: Color(0xffFEFEFE),
-            border: Border.all(color: Color(0xffE3E7EC)),
+            color: const Color(0xffFEFEFE),
+            border: Border.all(color: const Color(0xffE3E7EC)),
             borderRadius: BorderRadius.circular(12.r),
           ),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              selectItemRow(text: "Assign", onChanged: (b) {}),
-              Divider(),
-              selectItemRow(text: "Comment", onChanged: (b) {}),
-              Divider(),
-              selectItemRow(text: "Follow", onChanged: (b) {}),
-              Divider(),
-              selectItemRow(text: "Notification", onChanged: (b) {}),
+              SettingsSwitchWidget(text: "Assign", onChanged: (b) {}),
+              const Divider(),
+              SettingsSwitchWidget(text: "Comment", onChanged: (b) {}),
+              const Divider(),
+              SettingsSwitchWidget(text: "Follow", onChanged: (b) {}),
+              const Divider(),
+              SettingsSwitchWidget(text: "Notification", onChanged: (b) {}),
             ],
           ),
         ),
       ),
-    );
-  }
-
-  Row selectItemRow({
-    required String text,
-    required void Function(bool)? onChanged,
-  }) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          text,
-          style: AppStyles.bodyRegularXL.copyWith(height: 1.h),
-        ),
-        Switch(
-          value: true,
-          onChanged: onChanged,
-          activeColor: Color(0xff479C2B),
-          thumbColor: WidgetStatePropertyAll(Colors.white),
-          trackColor: WidgetStatePropertyAll(Color(0xff479C2B)),
-          trackOutlineColor: WidgetStatePropertyAll(Color(0xff479C2B)),
-          trackOutlineWidth: WidgetStatePropertyAll(15),
-        )
-      ],
     );
   }
 }

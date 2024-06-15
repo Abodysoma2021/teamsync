@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:icons_flutter/icons_flutter.dart';
+import 'package:get/get.dart';
 import 'package:teamsync/core/theme/app_styles.dart';
-import 'package:teamsync/features/main/presentation/views/widgets/settings_custom_text_form_field.dart';
+import 'package:teamsync/core/widgets/app_custom_text_form_field.dart';
 
 class LanguageView extends StatelessWidget {
   const LanguageView({super.key});
@@ -33,29 +33,28 @@ class LanguageView extends StatelessWidget {
         padding: EdgeInsets.all(24.r),
         child: Column(
           children: [
-            settingsCustomTextFormField(
-              hint: "Search language",
+            AppCustomTextFormField(
+              hintText: "Search language",
               prefixIcon: Icons.search_outlined,
             ),
             SizedBox(height: 30.r),
-            customSelectionContainer(
+            LanguageItemWidget(
               imageUrl: "assets/images/general/flags/uk.png",
               title: "English",
-              suffixIcon: Icons.check,
-              isSlected: true,
+              isSelected: true,
             ),
             SizedBox(height: 10.r),
-            customSelectionContainer(
+            LanguageItemWidget(
               imageUrl: "assets/images/general/flags/ksa.png",
               title: "Arabic",
             ),
             SizedBox(height: 10.r),
-            customSelectionContainer(
+            LanguageItemWidget(
               imageUrl: "assets/images/general/flags/france.png",
               title: "French",
             ),
             SizedBox(height: 10.r),
-            customSelectionContainer(
+            LanguageItemWidget(
               imageUrl: "assets/images/general/flags/germany.png",
               title: "Deutsch",
             ),
@@ -64,13 +63,20 @@ class LanguageView extends StatelessWidget {
       ),
     );
   }
+}
 
-  Container customSelectionContainer({
-    required String title,
-    required String imageUrl,
-    IconData? suffixIcon,
-    bool isSlected = false,
-  }) {
+class LanguageItemWidget extends StatelessWidget {
+  const LanguageItemWidget({
+    required this.title,
+    required this.imageUrl,
+    this.isSelected = false,
+    super.key,
+  });
+  final String title;
+  final String imageUrl;
+  final bool isSelected;
+  @override
+  Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       height: 52.h,
@@ -78,7 +84,7 @@ class LanguageView extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15.r),
         border: Border.all(
-          color: isSlected ? Color(0xff479C2B) : Color(0xffF3F3F3),
+          color: isSelected ? context.theme.primaryColor : Color(0xffF3F3F3),
         ),
       ),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
@@ -100,10 +106,11 @@ class LanguageView extends StatelessWidget {
             ),
           ],
         ),
-        Icon(
-          suffixIcon,
-          color: isSlected ? Color(0xff479C2B) : Color(0xffF3F3F3),
-        )
+        if (isSelected)
+          Icon(
+            Icons.check,
+            color: context.theme.primaryColor,
+          )
       ]),
     );
   }
